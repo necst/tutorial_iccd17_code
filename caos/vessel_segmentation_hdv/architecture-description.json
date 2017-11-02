@@ -1,0 +1,45 @@
+{        
+    "nodeDefinition" : {
+        "deviceTypes" : {
+            "f1-fpga" : {
+                "type" : "board",
+                "vendor" : "Xilinx",
+                "partNumber" : "XCVU9P-FLGB2104-2-I"
+            },
+            "intel-vcore" : {
+                "type" : "cpu",
+                "vendor" : "intel",
+                "partNumber" : "-"
+            }
+        },
+        "devices" : {
+            "f1-fpga-instance" : {
+                "type" : "f1-fpga"
+            },
+            "cpu" : {
+                "type" : "intel-vcore",
+                "host" : true
+            }
+        },
+        "connectionTypes" : {
+            "pcie_gen3" : {
+                "standard" : "PCIe",
+                "bandwidth" : "15.75 GB/s",
+                "duplex" : "full",
+                "version" : "3.0"
+            }
+        },
+        "connections" : [
+            {
+                "source" : "f1-fpga_instance",
+                "target" : "cpu",
+                "type" : "pcie_gen3"
+            }
+        ]
+    },
+    "system" : {
+        "nodes" : ["f1-fpga_node"],
+        "connectionTypes" : {},
+        "connections" : []
+    }
+}

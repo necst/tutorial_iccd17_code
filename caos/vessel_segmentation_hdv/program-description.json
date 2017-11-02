@@ -1,0 +1,13 @@
+{
+    "language": "C++",
+    "supportedCompilers" : [
+        {
+            "compiler": "gcc",
+            "arguments": "-O3"
+        },
+        {
+            "compiler": "llvm",
+            "arguments": "-O3"
+        }
+    ]
+}
