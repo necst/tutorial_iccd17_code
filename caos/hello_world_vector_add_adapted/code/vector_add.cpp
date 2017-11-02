@@ -39,8 +39,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFER_SIZE 2048
-#define DATA_SIZE 20480
+#define BUFFER_SIZE 8192
+#define DATA_SIZE 81920
 #define INIT_VAL_1  10  
 #define INIT_VAL_2  32
 
@@ -79,17 +79,7 @@ int main(int argc, char *argv[]){
 }
 
 void vector_add (int c[DATA_SIZE], int a[DATA_SIZE], int b[DATA_SIZE]){
-    int arrayA[DATA_SIZE];
-    int arrayB[DATA_SIZE];
-
-    readA: for (int i = 0; i < DATA_SIZE; i++){
-        arrayA[i] = a[i];
-    }
-    readB: for (int i = 0; i < DATA_SIZE; i++){
-        arrayB[i] = b[i];
-    }
-
     vadd_writeC: for(int  i = 0; i < DATA_SIZE; i++){
-        c[i] = arrayA[i] + arrayB[i];
+        c[i] = a[i] + b[i];
     }
 }
