@@ -12,7 +12,7 @@
 #include <CL/cl_ext.h>
 
 #define N 128
-#define M 512
+#define M 2048
 
 const short GAP_i = -1;
 const short GAP_d = -1;

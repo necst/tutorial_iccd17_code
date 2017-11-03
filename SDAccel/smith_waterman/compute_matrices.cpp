@@ -14,7 +14,7 @@ static const short MISS_MATCH = -1;
 
 
 #define N 128
-#define M 512
+#define M 2048
 #define MATRIX_SIZE N * M
 
 extern "C" {
