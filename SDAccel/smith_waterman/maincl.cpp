@@ -241,10 +241,8 @@ int main(int argc, char** argv) {
 
 	// Connect to a compute device
 	//
-	int fpga = 0;
-#if defined (FPGA_DEVICE)
-	fpga = 1;
-#endif
+	int fpga = 1;
+
 	printf("get device FPGA is %d  \n", fpga);
 	err = clGetDeviceIDs(platform_id,
 			fpga ? CL_DEVICE_TYPE_ACCELERATOR : CL_DEVICE_TYPE_CPU, 1,
@@ -490,13 +488,6 @@ int main(int argc, char** argv) {
 
 	printf("both ended\n");
 
-	/*for (int i = 0; i < N * M; i++){
-		if (i % N == 0)
-			printf("\n");
-
-		printf("%d ", direction_matrixhw[i]);
-	}
-*/
 	printf(" execution time is %f ms \n", executionTime);
 	for (int i = 0; i < N * M; i++) {
 		if (directionMatrixSW[i] != direction_matrixhw[i]) {
@@ -506,12 +497,10 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	// Print a brief summary detailing the results
-	//
 	printf("computation ended!- RESULTS CORRECT \n");
 
 	// Shutdown and cleanup
-	//
+
 	clReleaseMemObject(input_database);
 	clReleaseMemObject(input_query);
 	clReleaseMemObject(output_direction_matrixhw);
@@ -521,6 +510,10 @@ int main(int argc, char** argv) {
 	clReleaseKernel(kernel);
 	clReleaseCommandQueue(commands);
 	clReleaseContext(context);
+
+	free(matrix);
+	free(directionMatrixSW);
+	free(max_index_sw);
 
 	return EXIT_SUCCESS;
 }
